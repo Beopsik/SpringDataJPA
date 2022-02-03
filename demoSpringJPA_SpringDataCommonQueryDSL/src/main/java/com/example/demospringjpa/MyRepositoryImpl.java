@@ -10,9 +10,9 @@ public class MyRepositoryImpl<T, Id extends Serializable> extends SimpleJpaRepos
 
     private EntityManager entityManager;
 
-    public MyRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager, EntityManager entityManager1) {
+    public MyRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);
-        this.entityManager = entityManager1;
+        this.entityManager = entityManager;
     }
 
     @Override
