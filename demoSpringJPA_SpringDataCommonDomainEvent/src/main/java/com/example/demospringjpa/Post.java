@@ -1,16 +1,23 @@
 package com.example.demospringjpa;
 
+import org.springframework.data.domain.AbstractAggregateRoot;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Post {
+public class Post extends AbstractAggregateRoot<Post> {
 
     @Id @GeneratedValue
     private Long id;
 
     private String title;
+
+    public Post publish(){
+        this.registerEvent(new PostPublishedEvent(this));
+        return this;
+    }
 
     public Long getId() {
         return id;

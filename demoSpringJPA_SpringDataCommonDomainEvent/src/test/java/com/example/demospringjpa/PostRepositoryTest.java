@@ -22,19 +22,17 @@ public class PostRepositoryTest {
     @Autowired
     PostRepository postRepository;
 
-    @Autowired
-    ApplicationContext applicationContext;
-
-    @Test
-    public void event(){
-        Post post=new Post();
-        post.setTitle("hello spring event");
-        PostPublishedEvent event=new PostPublishedEvent(post);
-
-        applicationContext.publishEvent(event);
-
-
-    }
+//    @Autowired
+//    ApplicationContext applicationContext;
+//
+//    @Test
+//    public void event(){
+//        Post post=new Post();
+//        post.setTitle("hello spring event");
+//        PostPublishedEvent event=new PostPublishedEvent(post);
+//
+//        applicationContext.publishEvent(event);
+//    }
     @Test
     public void crudRepository(){
         // Given
@@ -43,7 +41,7 @@ public class PostRepositoryTest {
         assertThat(postRepository.contains(post)).isFalse();
 
         // When
-        postRepository.save(post);
+        postRepository.save(post.publish());
 
         // Then
         assertThat(postRepository.contains(post)).isTrue();
