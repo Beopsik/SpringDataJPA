@@ -43,8 +43,19 @@ class PostControllerTest {
         assertThat(entityManager.contains(updatedPost)).isTrue();
         assertThat(entityManager.contains(postUpdate)).isFalse();
         assertThat(postUpdate!=updatedPost);
-
+        
         List<Post> all = postRepository.findAll();
         assertThat(all.size()).isEqualTo(1);
+    }
+
+    @Test
+    @Transactional
+    public void findByTitleStartsWith(){
+        Post post=new Post();
+        post.setTitle("Spring Data JPA");
+        postRepository.save(post);
+
+        List<Post> spring = postRepository.findByTitleStartsWith("Spring");
+        assertThat(spring.size()).isEqualTo(1);
     }
 }
