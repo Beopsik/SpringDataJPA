@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findByTitleStartsWith(String title);
+
+    List<Post> findByTitle(String title);
 }

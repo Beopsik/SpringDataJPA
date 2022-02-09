@@ -58,4 +58,15 @@ class PostControllerTest {
         List<Post> spring = postRepository.findByTitleStartsWith("Spring");
         assertThat(spring.size()).isEqualTo(1);
     }
+
+    @Test
+    @Transactional
+    public void findByTitle(){
+        Post post=new Post();
+        post.setTitle("Spring");
+        postRepository.save(post);
+
+        List<Post> spring = postRepository.findByTitle("Spring");
+        assertThat(spring.size()).isEqualTo(1);
+    }
 }
