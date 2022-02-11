@@ -4,7 +4,6 @@ import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
-@NamedEntityGraph(name="Comment.post", attributeNodes = @NamedAttributeNode("post"))
 @Entity
 public class Comment {
     @Id
