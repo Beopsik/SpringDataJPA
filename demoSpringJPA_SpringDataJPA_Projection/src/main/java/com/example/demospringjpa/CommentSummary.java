@@ -1,5 +1,7 @@
 package com.example.demospringjpa;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public interface CommentSummary {
 
     String getComment();
@@ -7,4 +9,7 @@ public interface CommentSummary {
     int getUp();
 
     int getDown();
+
+    @Value("${target.up+' '+target.down}")
+    String getVotes();
 }
