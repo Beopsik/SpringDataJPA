@@ -10,6 +10,6 @@ public interface CommentSummary {
 
     int getDown();
 
-    @Value("${target.up+' '+target.down}")
+    @Value("#{target.up+' '+target.down}")
     String getVotes();
 }
