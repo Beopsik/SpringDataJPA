@@ -90,4 +90,9 @@ public class Comment {
     public void setBest(boolean best) {
         this.best = best;
     }
+
+    @PrePersist
+    public void prePersist(){
+        System.out.println("Pre Persist is called");
+    }
 }
